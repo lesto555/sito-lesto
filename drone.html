@@ -17,146 +17,203 @@
   />
   <style>
     body {
-        margin: 0;
-        padding: 0;
-      }
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-inline: 3vw;
-      }
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      .homemain {
-        height: 100%;
-        background: linear-gradient(to bottom, #ffffff8e, #ffffff);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .logo2 {
-        height: 6vw;
-        aspect-ratio: 1;
-        border: none;
-        background: url("img/home/logo2.png") no-repeat center;
-        background-size: contain;
-        margin-left: -2.3vw;
-      }
-      .right-nav {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-      }
-      .linkto {
-        display: flex;
-        gap: 10px;
-        font-family: "Anton SC";
-        font-size: 2vw;
-        min-width: 0.6vw;
-        align-items: center;
-        position: relative;
-        cursor: pointer;
-      }
-      .details {
-        background-color: #ffff;
-        border-radius: 6px;
-        border: solid 2px #000000;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        min-width: 150px;
-        padding: 5px 0;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        z-index: 100;
-        display: none;
-      }
-      .details-categorie.show {
-        display: block;
-      }
-      .details li {
-        padding: 8px 15px;
-      }
-      .details li a {
-        color: black;
-        text-decoration: none;
-        font-family: "Anton SC";
-        display: block;
-        width: 100%;
-      }
-      .details li:hover {
-        background-color: #7e9286ab;
-      }
-      .chevron {
-        font-size: 2vw;
-        transition: transform 0.3s ease;
-        margin-left: 6px;
-        user-select: none;
-      }
-      .chevron.up {
-        transform: rotate(180deg);
-      }
-      .fa-id-badge {
-        font-size: 2vw;
-        color: black;
-      }
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 3vw;
+      flex-wrap: wrap;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .homemain {
+      height: 100%;
+      background: linear-gradient(to bottom, #ffffff8e, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo2 {
+      height: 6vw;
+      aspect-ratio: 1;
+      border: none;
+      background: url("img/home/logo2.png") no-repeat center;
+      background-size: contain;
+      margin-left: -2.3vw;
+    }
+
+    .right-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .linkto {
+      display: flex;
+      gap: 10px;
+      font-family: "Anton SC";
+      font-size: 2vw;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .details {
+      background-color: #fff;
+      border-radius: 6px;
+      border: solid 2px #000000;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      min-width: 150px;
+      padding: 5px 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 100;
+      display: none;
+    }
+
+    .details-categorie.show {
+      display: block;
+    }
+
+    .details li {
+      padding: 8px 15px;
+    }
+
+    .details li a {
+      color: black;
+      text-decoration: none;
+      font-family: "Anton SC";
+      display: block;
+      width: 100%;
+    }
+
+    .details li:hover {
+      background-color: #7e9286ab;
+    }
+
+    .chevron {
+      font-size: 2vw;
+      transition: transform 0.3s ease;
+      margin-left: 6px;
+      user-select: none;
+    }
+
+    .chevron.up {
+      transform: rotate(180deg);
+    }
+
+    .fa-id-badge {
+      font-size: 2vw;
+      color: black;
+    }
+
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      padding: 1vw;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 2vw;
       background-color: #fff;
     }
 
-.gallery-item {
-  overflow: hidden;
-  border-radius: 10px;
-  position: relative;
-}
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 10px;
+      position: relative;
+    }
 
-.gallery-item img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
 
-.gallery-item:hover img {
-  transform: scale(1.05);
-}
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  top: 0; left: 0;
-  width: 100vw; height: 100vh;
-  background-color: rgba(0, 0, 0, 0.9);
-  justify-content: center;
-  align-items: center;
-}
-.lightbox-content {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-}
-.lightbox .close {
-  position: absolute;
-  top: 20px;
-  right: 40px;
-  color: white;
-  font-size: 3rem;
-  font-weight: bold;
-  cursor: pointer;
-}
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .lightbox .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: white;
+      font-size: 3rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Responsive per schermi < 768px */
+    @media (max-width: 768px) {
+      .logo2 {
+        height: 12vw;
+        margin-left: 0;
+      }
+
+      .linkto {
+        font-size: 4vw;
+      }
+
+      .chevron {
+        font-size: 4vw;
+      }
+
+      .fa-id-badge {
+        font-size: 4vw;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .right-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 4vw;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
-    <a href="index.html" aria-label="Torna alla homepage">
+    <a href="homepage.html" aria-label="Torna alla homepage">
       <div class="logo2"></div>
     </a>
     <div class="right-nav">
@@ -179,18 +236,19 @@
   </header>
 
   <div class="gallery">
-  <div class="gallery-item"><img src="img/drone/1.png" alt="Foto 1" /></div>
-  <div class="gallery-item"><img src="img/drone/2.png" alt="Foto 2" /></div>
-  <div class="gallery-item"><img src="img/drone/3.png" alt="Foto 3" /></div>
-  <div class="gallery-item"><img src="img/drone/4.png" alt="Foto 4" /></div>
-  <div class="gallery-item"><img src="img/drone/5.png" alt="Foto 5" /></div>
-  <div class="gallery-item"><img src="img/drone/6.png" alt="Foto 6" /></div>
-  <div class="gallery-item"><img src="img/drone/7.png" alt="Foto 7" /></div>
-</div>
-<div class="lightbox" id="lightbox">
-  <span class="close">&times;</span>
-  <img class="lightbox-content" id="lightbox-img" alt="foto ingrandita">
-</div>
+    <div class="gallery-item"><img src="img/drone/1.png" alt="Foto 1" /></div>
+    <div class="gallery-item"><img src="img/drone/2.png" alt="Foto 2" /></div>
+    <div class="gallery-item"><img src="img/drone/3.png" alt="Foto 3" /></div>
+    <div class="gallery-item"><img src="img/drone/4.png" alt="Foto 4" /></div>
+    <div class="gallery-item"><img src="img/drone/5.png" alt="Foto 5" /></div>
+    <div class="gallery-item"><img src="img/drone/6.png" alt="Foto 6" /></div>
+    <div class="gallery-item"><img src="img/drone/7.png" alt="Foto 7" /></div>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" alt="foto ingrandita" />
+  </div>
 
   <script>
     const categorie = document.querySelector(".categorie");
@@ -234,27 +292,27 @@
       }, 100);
     });
 
-      const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightbox-img");
-  const closeBtn = document.querySelector(".close");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".close");
 
-  document.querySelectorAll(".gallery-item img").forEach(img => {
-    img.addEventListener("click", () => {
-      lightbox.style.display = "flex";
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
+    document.querySelectorAll(".gallery-item img").forEach(img => {
+      img.addEventListener("click", () => {
+        lightbox.style.display = "flex";
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+      });
     });
-  });
 
-  closeBtn.addEventListener("click", () => {
-    lightbox.style.display = "none";
-  });
-
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) {
+    closeBtn.addEventListener("click", () => {
       lightbox.style.display = "none";
-    }
-  });
+    });
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
+      }
+    });
   </script>
 </body>
 </html>
