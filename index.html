@@ -1,230 +1,249 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Lesto's Caveau</title>
-    <link rel="shortcut icon" href="img/home/favicon.ico" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lesto's Caveau</title>
+  <link rel="shortcut icon" href="img/home/favicon.ico" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Hanken Grotesk', sans-serif;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 3vw;
+      background: #fff;
+      box-sizing: border-box;
+      flex-wrap: wrap;
+    }
+    .logo2 {
+      height: 6vw;
+      aspect-ratio: 1;
+      background: url("img/home/logo2.png") no-repeat center;
+      background-size: contain;
+      border: none;
+      margin-left: 0;
+      flex-shrink: 0;
+    }
+    .right-nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      position: relative;
+    }
+    ul.linkto {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-family: 'Anton SC', sans-serif;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    ul.linkto li.categorie {
+      position: relative;
+      user-select: none;
+    }
+    ul.linkto li.categorie i.chevron {
+      margin-left: 0.3rem;
+      transition: transform 0.3s ease;
+      font-size: 1.2rem;
+      vertical-align: middle;
+    }
+    ul.linkto li.categorie i.chevron.up {
+      transform: rotate(180deg);
+    }
+    ul.linkto li.categorie ul.details-categorie {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #fff;
+      border: 2px solid #000;
+      border-radius: 6px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      min-width: 160px;
+      padding: 0.3rem 0;
+      z-index: 10;
+    }
+    ul.linkto li.categorie ul.details-categorie.show {
+      display: block;
+    }
+    ul.linkto li.categorie ul.details-categorie li {
+      padding: 0.5rem 1rem;
+    }
+    ul.linkto li.categorie ul.details-categorie li a {
+      text-decoration: none;
+      color: black;
+      font-family: 'Anton SC', sans-serif;
+      display: block;
+    }
+    ul.linkto li.categorie ul.details-categorie li:hover {
+      background-color: #7e9286ab;
+    }
+    a.id {
+      color: black;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+    }
+    a.id i.fa-id-badge {
+      font-size: 1.5rem;
+    }
+
+    .homemain {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50vh;
+      background-image: url("img/home/bumbum.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .welcome-message {
+      text-align: center;
+      color: black;
+      font-size: 2.5vw;
+      font-family: 'Anton SC', sans-serif;
+      background-color: rgba(255, 255, 255, 0.33);
+      width: 100%;
+      padding: 1rem 0;
+      box-sizing: border-box;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
       header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-inline: 3vw;
-        flex-wrap: wrap;
-      }
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      .homemain {
-        height: 50vh;
-        background-image: url("img/home/bumbum.png");
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem 5vw;
       }
       .logo2 {
-        height: 6vw;
-        aspect-ratio: 1;
-        border: none;
-        background: url("img/home/logo2.png") no-repeat center;
-        background-size: contain;
-        margin-left: -2.3vw;
+        height: 10vw;
       }
       .right-nav {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-        flex-wrap: wrap;
-      }
-      .linkto {
-        display: flex;
-        gap: 10px;
-        font-family: "Anton SC";
-        font-size: 2vw;
-        min-width: 0.6vw;
-        align-items: center;
-        position: relative;
-        cursor: pointer;
-      }
-      .details {
-        background-color: #fff;
-        border-radius: 6px;
-        border: solid 2px #000000;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        min-width: 150px;
-        padding: 5px 0;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        z-index: 100;
-        display: none;
-      }
-      .details-categorie.show {
-        display: block;
-      }
-      .details li {
-        padding: 8px 15px;
-      }
-      .details li a {
-        color: black;
-        text-decoration: none;
-        font-family: "Anton SC";
-        display: block;
         width: 100%;
+        justify-content: flex-start;
+        gap: 1.5rem;
       }
-      .details li:hover {
-        background-color: #7e9286ab;
+      ul.linkto {
+        font-size: 1.8rem;
+        gap: 1rem;
       }
-      .chevron {
-        font-size: 2vw;
-        transition: transform 0.3s ease;
-        margin-left: 6px;
-        user-select: none;
+      ul.linkto li.categorie i.chevron {
+        font-size: 1.8rem;
       }
-      .chevron.up {
-        transform: rotate(180deg);
+      a.id i.fa-id-badge {
+        font-size: 2rem;
       }
-      .fa-id-badge {
-        font-size: 2vw;
-        color: black;
+      ul.linkto li.categorie ul.details-categorie {
+        position: static;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        min-width: auto;
+      }
+      ul.linkto li.categorie ul.details-categorie li {
+        padding: 0.5rem 0;
+      }
+      ul.linkto li.categorie ul.details-categorie li:hover {
+        background-color: transparent;
+      }
+
+      .homemain {
+        height: 35vh;
       }
       .welcome-message {
-        text-align: center;
-        color: black;
-        font-size: 2.5vw;
-        font-family: "Anton SC";
-        background-color: rgba(255, 255, 255, 0.329);
-        width: 100%;
+        font-size: 5vw;
       }
-
-      /* Responsive per schermi < 768px */
-      @media (max-width: 768px) {
-        .logo2 {
-          height: 12vw;
-          margin-left: 0;
-        }
-        .linkto {
-          font-size: 4vw;
-        }
-        .chevron {
-          font-size: 4vw;
-        }
-        .fa-id-badge {
-          font-size: 4vw;
-        }
-        header {
-          flex-direction: column;
-          align-items: flex-start;
-          padding-inline: 5vw;
-        }
-        .right-nav {
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 10px;
-          width: 100%;
-        }
-        .welcome-message {
-          font-size: 6vw;
-          padding: 1rem;
-          background-color: rgba(255, 255, 255, 0.5);
-        }
-        .homemain {
-          height: 40vh;
-          background-position: center center;
-        }
-      }
-    </style>
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <a href="index.html">
-            <div class="logo2" aria-label="Logo Lesto's Caveau"></div>
-        </a>
+  <header>
+    <a href="index.html">
+      <div class="logo2" aria-label="Logo Lesto's Caveau"></div>
+    </a>
 
-        <div class="right-nav">
-          <ul class="linkto">
-              <li class="categorie" tabindex="0">
-                  Categorie <i class="chevron fa-solid fa-chevron-down"></i>
-                  <ul class="details details-categorie">
-                      <li><a href="drone.html">Drone</a></li>
-                      <li><a href="referencies.html">Dove Gioco?</a></li>
-                  </ul>
-              </li>
+    <nav class="right-nav">
+      <ul class="linkto">
+        <li class="categorie" tabindex="0">
+          Categorie <i class="chevron fa-solid fa-chevron-down"></i>
+          <ul class="details details-categorie">
+            <li><a href="drone.html">Drone</a></li>
+            <li><a href="referencies.html">Dove Gioco?</a></li>
           </ul>
-          <a href="id.html" aria-label="Pagina ID">
-            <div class="id">
-              <i class="fa-solid fa-id-badge"></i>
-            </div>
-          </a>
-        </div>
-    </header>
+        </li>
+      </ul>
+      <a href="id.html" aria-label="Pagina ID" class="id">
+        <i class="fa-solid fa-id-badge"></i>
+      </a>
+    </nav>
+  </header>
 
-    <div class="homemain">
-      <div class="welcome-message">
-        <h1>Benvenuto!</h1>
-      </div>
+  <div class="homemain">
+    <div class="welcome-message">
+      <h1>Benvenuto!</h1>
     </div>
+  </div>
 
-    <script>
-      const categorie = document.querySelector(".categorie");
-      const chevron = categorie.querySelector(".chevron");
-      const detailscategorie = categorie.querySelector(".details-categorie");
+  <script>
+    const categorie = document.querySelector(".categorie");
+    const chevron = categorie.querySelector(".chevron");
+    const detailscategorie = categorie.querySelector(".details-categorie");
 
-      function showMenu() {
-        detailscategorie.classList.add("show");
-        chevron.classList.add("up");
-      }
-      function hideMenu() {
-        detailscategorie.classList.remove("show");
-        chevron.classList.remove("up");
-      }
+    function showMenu() {
+      detailscategorie.classList.add("show");
+      chevron.classList.add("up");
+    }
+    function hideMenu() {
+      detailscategorie.classList.remove("show");
+      chevron.classList.remove("up");
+    }
 
-      categorie.addEventListener("mouseenter", showMenu);
-      categorie.addEventListener("focusin", showMenu);
+    categorie.addEventListener("mouseenter", showMenu);
+    categorie.addEventListener("focusin", showMenu);
+    detailscategorie.addEventListener("mouseenter", showMenu);
 
-      detailscategorie.addEventListener("mouseenter", showMenu);
+    categorie.addEventListener("mouseleave", () => {
+      setTimeout(() => {
+        if (!categorie.matches(":hover") && !detailscategorie.matches(":hover")) {
+          hideMenu();
+        }
+      }, 100);
+    });
+    detailscategorie.addEventListener("mouseleave", () => {
+      setTimeout(() => {
+        if (!categorie.matches(":hover") && !detailscategorie.matches(":hover")) {
+          hideMenu();
+        }
+      }, 100);
+    });
 
-      categorie.addEventListener("mouseleave", () => {
-        setTimeout(() => {
-          if (!categorie.matches(":hover") && !detailscategorie.matches(":hover")) {
-            hideMenu();
-          }
-        }, 100);
-      });
-      detailscategorie.addEventListener("mouseleave", () => {
-        setTimeout(() => {
-          if (!categorie.matches(":hover") && !detailscategorie.matches(":hover")) {
-            hideMenu();
-          }
-        }, 100);
-      });
-
-      categorie.addEventListener("focusout", () => {
-        setTimeout(() => {
-          if (!categorie.matches(":focus") && !detailscategorie.matches(":focus-within")) {
-            hideMenu();
-          }
-        }, 100);
-      });
-    </script>
+    categorie.addEventListener("focusout", () => {
+      setTimeout(() => {
+        if (!categorie.matches(":focus") && !detailscategorie.matches(":focus-within")) {
+          hideMenu();
+        }
+      }, 100);
+    });
+  </script>
 </body>
 </html>
