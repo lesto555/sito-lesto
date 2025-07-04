@@ -25,6 +25,7 @@
         justify-content: space-between;
         align-items: center;
         padding-inline: 3vw;
+        flex-wrap: wrap;
       }
       ul {
         list-style: none;
@@ -50,6 +51,7 @@
         display: flex;
         align-items: center;
         gap: 30px;
+        flex-wrap: wrap;
       }
       .linkto {
         display: flex;
@@ -62,7 +64,7 @@
         cursor: pointer;
       }
       .details {
-        background-color: #ffff;
+        background-color: #fff;
         border-radius: 6px;
         border: solid 2px #000000;
         position: absolute;
@@ -102,6 +104,35 @@
       .fa-id-badge {
         font-size: 2vw;
         color: black;
+      }
+
+      /* Responsive per schermi piccoli */
+      @media (max-width: 768px) {
+        .logo2 {
+          height: 12vw;
+          margin-left: 0;
+        }
+        .linkto {
+          font-size: 3.5vw;
+          min-width: auto;
+        }
+        .chevron {
+          font-size: 3.5vw;
+        }
+        .fa-id-badge {
+          font-size: 4vw;
+        }
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+          padding-inline: 5vw;
+        }
+        .right-nav {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          width: 100%;
+        }
       }
     </style>
 </head>
