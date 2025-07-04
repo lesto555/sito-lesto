@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>G.Renzi - Drone</title>
+  <title>Lesto's Caveau</title>
   <link rel="shortcut icon" href="img/home/favicon.ico" />
   <link
     rel="stylesheet"
@@ -19,236 +19,156 @@
     body {
       margin: 0;
       padding: 0;
+      font-family: 'Hanken Grotesk', sans-serif;
     }
-
     header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 3vw;
+      padding: 1rem 3vw;
+      background: #fff;
+      box-sizing: border-box;
       flex-wrap: wrap;
     }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .homemain {
-      height: 100%;
-      background: linear-gradient(to bottom, #ffffff8e, #ffffff);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
     .logo2 {
       height: 6vw;
       aspect-ratio: 1;
-      border: none;
       background: url("img/home/logo2.png") no-repeat center;
       background-size: contain;
-      margin-left: -2.3vw;
+      border: none;
+      margin-left: 0;
+      flex-shrink: 0;
     }
-
     .right-nav {
       display: flex;
       align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .linkto {
-      display: flex;
-      gap: 10px;
-      font-family: "Anton SC";
-      font-size: 2vw;
-      align-items: center;
+      gap: 2rem;
       position: relative;
+    }
+    ul.linkto {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-family: 'Anton SC', sans-serif;
+      font-size: 1.2rem;
       cursor: pointer;
     }
-
-    .details {
-      background-color: #fff;
-      border-radius: 6px;
-      border: solid 2px #000000;
+    ul.linkto li.categorie {
+      position: relative;
+      user-select: none;
+    }
+    ul.linkto li.categorie i.chevron {
+      margin-left: 0.3rem;
+      transition: transform 0.3s ease;
+      font-size: 1.2rem;
+      vertical-align: middle;
+    }
+    ul.linkto li.categorie i.chevron.up {
+      transform: rotate(180deg);
+    }
+    ul.linkto li.categorie ul.details-categorie {
+      display: none;
       position: absolute;
       top: 100%;
       left: 0;
-      min-width: 150px;
-      padding: 5px 0;
+      background: #fff;
+      border: 2px solid #000;
+      border-radius: 6px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      z-index: 100;
-      display: none;
+      min-width: 160px;
+      padding: 0.3rem 0;
+      z-index: 10;
     }
-
-    .details-categorie.show {
+    ul.linkto li.categorie ul.details-categorie.show {
       display: block;
     }
-
-    .details li {
-      padding: 8px 15px;
+    ul.linkto li.categorie ul.details-categorie li {
+      padding: 0.5rem 1rem;
     }
-
-    .details li a {
-      color: black;
+    ul.linkto li.categorie ul.details-categorie li a {
       text-decoration: none;
-      font-family: "Anton SC";
+      color: black;
+      font-family: 'Anton SC', sans-serif;
       display: block;
-      width: 100%;
     }
-
-    .details li:hover {
+    ul.linkto li.categorie ul.details-categorie li:hover {
       background-color: #7e9286ab;
     }
-
-    .chevron {
-      font-size: 2vw;
-      transition: transform 0.3s ease;
-      margin-left: 6px;
-      user-select: none;
-    }
-
-    .chevron.up {
-      transform: rotate(180deg);
-    }
-
-    .fa-id-badge {
-      font-size: 2vw;
+    a.id {
       color: black;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 2vw;
-      background-color: #fff;
-    }
-
-    .gallery-item {
-      overflow: hidden;
-      border-radius: 10px;
-      position: relative;
-    }
-
-    .gallery-item img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .gallery-item:hover img {
-      transform: scale(1.05);
-    }
-
-    .lightbox {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background-color: rgba(0, 0, 0, 0.9);
-      justify-content: center;
+      font-size: 1.5rem;
+      display: flex;
       align-items: center;
     }
-
-    .lightbox-content {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
+    a.id i.fa-id-badge {
+      font-size: 1.5rem;
     }
 
-    .lightbox .close {
-      position: absolute;
-      top: 20px;
-      right: 40px;
-      color: white;
-      font-size: 3rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    /* Responsive per schermi < 768px */
+    /* Responsive */
     @media (max-width: 768px) {
-      .logo2 {
-        height: 12vw;
-        margin-left: 0;
-      }
-
-      .linkto {
-        font-size: 4vw;
-      }
-
-      .chevron {
-        font-size: 4vw;
-      }
-
-      .fa-id-badge {
-        font-size: 4vw;
-      }
-
       header {
         flex-direction: column;
         align-items: flex-start;
+        gap: 1rem;
+        padding: 1rem 5vw;
       }
-
+      .logo2 {
+        height: 10vw;
+      }
       .right-nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
         width: 100%;
+        justify-content: flex-start;
+        gap: 1.5rem;
       }
-
-      .gallery {
-        grid-template-columns: 1fr;
-        gap: 10px;
-        padding: 4vw;
+      ul.linkto {
+        font-size: 1.8rem;
+        gap: 1rem;
+      }
+      ul.linkto li.categorie i.chevron {
+        font-size: 1.8rem;
+      }
+      a.id i.fa-id-badge {
+        font-size: 2rem;
+      }
+      ul.linkto li.categorie ul.details-categorie {
+        position: static;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        min-width: auto;
+      }
+      ul.linkto li.categorie ul.details-categorie li {
+        padding: 0.5rem 0;
+      }
+      ul.linkto li.categorie ul.details-categorie li:hover {
+        background-color: transparent;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <a href="homepage.html" aria-label="Torna alla homepage">
-      <div class="logo2"></div>
+    <a href="index.html">
+      <div class="logo2" aria-label="Logo Lesto's Caveau"></div>
     </a>
-    <div class="right-nav">
+
+    <nav class="right-nav">
       <ul class="linkto">
         <li class="categorie" tabindex="0">
           Categorie <i class="chevron fa-solid fa-chevron-down"></i>
           <ul class="details details-categorie">
             <li><a href="drone.html">Drone</a></li>
-            <li><a href="#">Computer</a></li>
-            <li><a href="#">Radio</a></li>
+            <li><a href="referencies.html">Dove Gioco?</a></li>
           </ul>
         </li>
       </ul>
-      <a href="id.html" aria-label="Pagina ID">
-        <div class="id">
-          <i class="fa-solid fa-id-badge"></i>
-        </div>
+      <a href="id.html" aria-label="Pagina ID" class="id">
+        <i class="fa-solid fa-id-badge"></i>
       </a>
-    </div>
+    </nav>
   </header>
-
-  <div class="gallery">
-    <div class="gallery-item"><img src="img/drone/1.png" alt="Foto 1" /></div>
-    <div class="gallery-item"><img src="img/drone/2.png" alt="Foto 2" /></div>
-    <div class="gallery-item"><img src="img/drone/3.png" alt="Foto 3" /></div>
-    <div class="gallery-item"><img src="img/drone/4.png" alt="Foto 4" /></div>
-    <div class="gallery-item"><img src="img/drone/5.png" alt="Foto 5" /></div>
-    <div class="gallery-item"><img src="img/drone/6.png" alt="Foto 6" /></div>
-    <div class="gallery-item"><img src="img/drone/7.png" alt="Foto 7" /></div>
-  </div>
-
-  <div class="lightbox" id="lightbox">
-    <span class="close">&times;</span>
-    <img class="lightbox-content" id="lightbox-img" alt="foto ingrandita" />
-  </div>
 
   <script>
     const categorie = document.querySelector(".categorie");
@@ -266,7 +186,6 @@
 
     categorie.addEventListener("mouseenter", showMenu);
     categorie.addEventListener("focusin", showMenu);
-
     detailscategorie.addEventListener("mouseenter", showMenu);
 
     categorie.addEventListener("mouseleave", () => {
@@ -290,28 +209,6 @@
           hideMenu();
         }
       }, 100);
-    });
-
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const closeBtn = document.querySelector(".close");
-
-    document.querySelectorAll(".gallery-item img").forEach(img => {
-      img.addEventListener("click", () => {
-        lightbox.style.display = "flex";
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt;
-      });
-    });
-
-    closeBtn.addEventListener("click", () => {
-      lightbox.style.display = "none";
-    });
-
-    lightbox.addEventListener("click", (e) => {
-      if (e.target === lightbox) {
-        lightbox.style.display = "none";
-      }
     });
   </script>
 </body>
