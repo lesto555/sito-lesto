@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lesto's Caveau</title>
+    <link rel="shortcut icon" href="img/home/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton+SC&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-inline: 3vw;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .homemain {
+        height: 100%;
+        background: linear-gradient(to bottom, #ffffff8e, #ffffff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .logo2 {
+        height: 6vw;
+        aspect-ratio: 1;
+        border: none;
+        background: url("img/home/logo2.png") no-repeat center;
+        background-size: contain;
+        margin-left: -2.3vw;
+      }
+      .right-nav {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+      }
+      .linkto {
+        display: flex;
+        gap: 10px;
+        font-family: "Anton SC";
+        font-size: 1.5vw;
+        min-width: 0.9vw;
+        align-items: center;
+        position: relative;
+        cursor: pointer;
+      }
+      .details {
+        background-color: #ffff;
+        border-radius: 6px;
+        border: solid 2px #000000;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 150px;
+        padding: 5px 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 100;
+        display: none;
+      }
+      .details-categorie.show {
+        display: block;
+      }
+      .details li {
+        padding: 8px 15px;
+      }
+      .details li a {
+        color: black;
+        text-decoration: none;
+        font-family: "Anton SC";
+        display: block;
+        width: 100%;
+      }
+      .details li:hover {
+        background-color: #7e9286ab;
+      }
+      .chevron {
+        font-size: 1.5vw;
+        transition: transform 0.3s ease;
+        margin-left: 6px;
+        user-select: none;
+      }
+      .chevron.up {
+        transform: rotate(180deg);
+      }
+      .fa-id-badge {
+        font-size: 2vw;
+        color: black;
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="homepage.html">
+            <div class="logo2" aria-label="Logo Lesto's Caveau"></div>
+        </a>
+
+        <div class="right-nav">
+          <ul class="linkto">
+              <li class="categorie" tabindex="0">
+                  Categorie <i class="chevron fa-solid fa-chevron-down"></i>
+                  <ul class="details details-categorie">
+                      <li><a href="drone.html">Drone</a></li>
+                      <li><a href="referencies.html">Dove Gioco?</a></li>
+                  </ul>
+              </li>
+          </ul>
+          <a href="id.html" aria-label="Pagina ID">
+            <div class="id">
+              <i class="fa-solid fa-id-badge"></i>
+            </div>
+          </a>
+        </div>
+    </header>
+
+    <script>
+      const categorie = document.querySelector(".categorie");
+      const chevron = categorie.querySelector(".chevron");
+      const detailscategorie = categorie.querySelector(".details-categorie");
+
+      function showMenu() {
+        detailscategorie.classList.add("show");
+        chevron.classList.add("up");
+      }
+      function hideMenu() {
+        detailscategorie.classList.remove("show");
+        chevron.classList.remove("up");
+      }
+
+      categorie.addEventListener("mouseenter", showMenu);
+      categorie.addEventListener("focusin", showMenu);
+
+      detailscategorie.addEventListener("mouseenter", showMenu);
+
+      categorie.addEventListener("mouseleave", () => {
+        setTimeout(() => {
+          if (!categorie.matches(":hover") && !detailscategorie.matches(":hover")) {
+            hideMenu();
+          }
+        }, 100);
+      });
+      detailscategorie.addEventListener("mouseleave", () => {
+        setTimeout(() => {
+          if (!categorie.matches(":hover") && !detailscategorie.matches(":hover")) {
+            hideMenu();
+          }
+        }, 100);
+      });
+
+      categorie.addEventListener("focusout", () => {
+        setTimeout(() => {
+          if (!categorie.matches(":focus") && !detailscategorie.matches(":focus-within")) {
+            hideMenu();
+          }
+        }, 100);
+      });
+    </script>
+</body>
+</html>
