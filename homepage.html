@@ -55,8 +55,8 @@
         display: flex;
         gap: 10px;
         font-family: "Anton SC";
-        font-size: 1.5vw;
-        min-width: 0.9vw;
+        font-size: 2vw;
+        min-width: 0.6vw;
         align-items: center;
         position: relative;
         cursor: pointer;
@@ -91,7 +91,7 @@
         background-color: #7e9286ab;
       }
       .chevron {
-        font-size: 1.5vw;
+        font-size: 2vw;
         transition: transform 0.3s ease;
         margin-left: 6px;
         user-select: none;
@@ -102,6 +102,21 @@
       .fa-id-badge {
         font-size: 2vw;
         color: black;
+      }
+      .homemain {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50vh;
+        background-image: url("img/home/bumbum.png");
+      }
+      .welcome-message {
+        text-align: center;
+        color: black;
+        font-size: 2.5vw;
+        font-family: "Anton SC";
+        background-color: rgba(255, 255, 255, 0.329);
+        width: 100%;
       }
     </style>
 </head>
@@ -128,6 +143,12 @@
           </a>
         </div>
     </header>
+
+    <div class="homemain">
+      <div class="welcome-message">
+        <h1>Benvenuto!</h1>
+      </div>
+    </div>
 
     <script>
       const categorie = document.querySelector(".categorie");
